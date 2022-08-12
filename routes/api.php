@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthPassportController;
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +26,7 @@ Route::post('login',[AuthPassportController::class,'login']);
 Route::middleware('auth:api')->group(function(){
     Route::post('logout',[AuthPassportController::class,'logout']);
     Route::group(['prefix'=>'v1'],function(){
-        /*
-        Route::group(['prefix'=>'post'],function(){
-            Route::get('getPost',[PostController::class,'index']);
-            Route::post('store',[PostController::class,'store']);
-            Route::get('detil/{id}',[PostController::class,'detil']);
-        });
-        */
-        Route::resource('post',\App\Http\Controllers\PostController::class);
+        Route::resource('post',PostController::class);
+        Route::resource('category',CategoryController::class);
     });
 });

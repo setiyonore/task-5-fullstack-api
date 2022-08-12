@@ -91,18 +91,18 @@ class PostController extends Controller
             'user_id' => auth()->user()->id,
             'category_id' => $request['category_id']
         ]);
-        return response()->json([
-            'success' => true,
-            'message' => 'Post save successfully',
-            'data' => array([
-                'id' => $data->id,
-                'title' => $data->title,
-                'content' => $data->content,
-                'image' => $data->image,
-                'user_id' => $data->user_id,
-                'category_id' => $data->category_id,
-            ])
-        ],200);
+         return response()->json([
+             'success' => true,
+             'message' => 'Post save successfully',
+             'data' => array([
+                 'id' => $data->id,
+                 'title' => $data->title,
+                 'content' => $data->content,
+                 'image' => $data->image,
+                 'user_id' => $data->user_id,
+                 'category_id' => $data->category_id,
+             ])
+         ],201);
 
     }
 
